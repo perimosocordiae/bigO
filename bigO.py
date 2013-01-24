@@ -28,4 +28,7 @@ class BigO(object):
   def followed_by(self, *others):
     return max(self, *others)
 
+  def __str__(self):
+    return "O(%s)" % self.expr
+
 O = BigO  # for concision, if desired
