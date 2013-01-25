@@ -1,4 +1,3 @@
-
 '''Symbolic manipulation of Big-O complexities.'''
 
 import sympy
@@ -20,7 +19,9 @@ class BigO(object):
     return self._limit(other) == 0
 
   def _limit(self, other):
-    return sympy.limit(self.expr/other.expr, n, sympy.oo)
+    ratio = self.expr/other.expr
+    ratio = ratio.rewrite(sympy.factorial, sympy.gamma)  # hack until upstream sympy is fixed
+    return sympy.limit(ratio, n, sympy.oo)
 
   def inside(self, other):
     return BigO(self.expr * other.expr)
