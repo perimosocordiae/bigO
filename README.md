@@ -6,6 +6,9 @@ I was [looking for something like this](http://stackoverflow.com/questions/14510
 but couldn't find it.
 So I wrote it, and it turned out to be much simpler than I expected.
 
+Note that this is not the same as [sympy.series.order](http://docs.sympy.org/dev/modules/series.html#order-terms):
+that handles terms in series expansions of functions, whereas this library deals with time and/or space complexity.
+
 ## Usage
 
     import sympy
