@@ -2,12 +2,12 @@
 
 import sympy
 
-n = sympy.Symbol('n', positive=True)
-
 
 class BigO(object):
   def __init__(self, expr):
-    self.expr = expr
+    self.expr = sympy.sympify(expr)
+    assert len(self.expr.free_symbols) == 1
+    self.var = list(self.expr.free_symbols)[0]
 
   def __eq__(self, other):
     return self.expr == other.expr or 0 < self._limit(other) < sympy.oo
@@ -21,7 +21,7 @@ class BigO(object):
   def _limit(self, other):
     ratio = self.expr/other.expr
     ratio = ratio.rewrite(sympy.factorial, sympy.gamma)  # hack until upstream sympy is fixed
-    return sympy.limit(ratio, n, sympy.oo)
+    return sympy.limit(ratio, self.var, sympy.oo)
 
   def inside(self, other):
     return BigO(self.expr * other.expr)
@@ -32,4 +32,6 @@ class BigO(object):
   def __str__(self):
     return "O(%s)" % self.expr
 
-O = BigO  # for concision, if desired
+# definitions for concision, if desired
+O = BigO
+n = sympy.Symbol('n', positive=True)
