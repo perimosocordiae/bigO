@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import unittest
 from sympy import sqrt, log, Rational, factorial
 from bigO import O, n
@@ -24,18 +22,18 @@ class TestBigO(unittest.TestCase):
 
   def test_ordering_complex(self):
     funcs = [
-      O(2**sqrt(log(n))),
-      O(2**(2**n)),
-      O(n*log(n)**3),
-      O(n**Rational(4,3)),
-      O(n**log(n)),
-      O(2**n),
-      O((n**(1/log(n)))**3),
-      O(factorial(n)),
-      O(n**(1+1/log(log(n)))),
-      O(log(n)**2),
-      O(log(n)**log(n)),
-      O(3.14**n)
+        O(2**sqrt(log(n))),
+        O(2**(2**n)),
+        O(n*log(n)**3),
+        O(n**Rational(4,3)),
+        O(n**log(n)),
+        O(2**n),
+        O((n**(1/log(n)))**3),
+        O(factorial(n)),
+        O(n**(1+1/log(log(n)))),
+        O(log(n)**2),
+        O(log(n)**log(n)),
+        O(3.14**n)
     ]
     order = argsort(funcs)
     expected_order = [6, 9, 0, 2, 8, 3, 10, 4, 5, 11, 7, 1]

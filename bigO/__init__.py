@@ -6,8 +6,8 @@ import sympy
 class BigO(object):
   def __init__(self, expr):
     self.expr = sympy.sympify(expr)
-    assert len(self.expr.free_symbols) == 1
-    self.var = list(self.expr.free_symbols)[0]
+    assert len(self.expr.free_symbols) <= 1, (
+        'Too many variables: %s' % self.expr)
 
   def __eq__(self, other):
     return self.expr == other.expr or 0 < self._limit(other) < sympy.oo
@@ -20,8 +20,9 @@ class BigO(object):
 
   def _limit(self, other):
     ratio = self.expr/other.expr
-    ratio = ratio.rewrite(sympy.factorial, sympy.gamma)  # hack until upstream sympy is fixed
-    return sympy.limit(ratio, self.var, sympy.oo)
+    assert len(ratio.free_symbols) == 1, (
+        'Ambiguous var in limit ratio: %s' % ratio)
+    return sympy.limit(ratio, list(ratio.free_symbols)[0], sympy.oo)
 
   def inside(self, other):
     return BigO(self.expr * other.expr)
