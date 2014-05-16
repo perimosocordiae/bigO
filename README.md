@@ -11,15 +11,17 @@ that handles terms in series expansions of functions, whereas this library deals
 
 ## Usage
 
-    import sympy
-    from bigO import O, n
+```python
+import sympy
+from bigO import O, n
 
-    f_time = O(n)
-    g_time = O(n**2)
-    h_time = O(sympy.sqrt(n))
+f_time = O(n)
+g_time = O(n**2)
+h_time = O(sympy.sqrt(n))
 
-    fastest_asymptotically = min(f_time, g_time, h_time)
-    # = h_time
-    
-    total_time = f_time.inside(g_time).followed_by(h_time)
-    # = O(n**3)
+fastest_asymptotically = min(f_time, g_time, h_time)
+# = h_time
+
+total_time = f_time.inside(g_time).followed_by(h_time)
+# = O(n**3)
+```
