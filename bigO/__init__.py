@@ -1,4 +1,20 @@
-'''Symbolic manipulation of Big-O complexities.'''
+'''Symbolic manipulation of Big-O complexities.
+
+>>> import sympy
+>>> from bigO import O, n
+>>> f_time = O(n)
+>>> g_time = O(n**2)
+>>> h_time = O(sympy.sqrt(n))
+>>> fastest_asymptotically = min(f_time, g_time, h_time)
+>>> print(fastest_asymptotically) # == h_time
+O(sqrt(n))
+>>> fastest_asymptotically == h_time
+True
+>>> total_time = f_time.inside(g_time).followed_by(h_time)
+>>> print(total_time)
+O(n**3)
+
+'''
 
 import sympy
 

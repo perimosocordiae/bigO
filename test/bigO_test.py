@@ -1,6 +1,13 @@
 import unittest
+import doctest
 from sympy import sqrt, log, Rational, factorial
+import bigO
 from bigO import O, n
+
+
+def load_tests(loader, tests, ignore):
+  tests.addTests(doctest.DocTestSuite(bigO))
+  return tests
 
 
 def argsort(seq):
