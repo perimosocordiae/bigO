@@ -2,6 +2,7 @@
 
 [![PyPI version](https://badge.fury.io/py/bigO.svg)](http://badge.fury.io/py/bigO)
 [![Download stats](https://pypip.in/download/bigO/badge.svg)](https://pypi.python.org/pypi/bigO)
+[![Build Status](https://travis-ci.org/perimosocordiae/bigO.svg?branch=master)](https://travis-ci.org/perimosocordiae/bigO)
 
 *Symbolic representation of big-O notation.*
 
