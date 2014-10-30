@@ -44,7 +44,7 @@ class TestBigO(unittest.TestCase):
     ]
     order = argsort(funcs)
     expected_order = [6, 9, 0, 2, 8, 3, 10, 4, 5, 11, 7, 1]
-    self.assertListEqual(order, expected_order)
+    self.assertEqual(order, expected_order)
 
   def test_composition(self):
     total_time = self.f_time.inside(self.g_time).followed_by(self.h_time)
