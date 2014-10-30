@@ -1,5 +1,8 @@
 # bigO
 
+[![PyPI version](https://badge.fury.io/py/bigO.svg)](http://badge.fury.io/py/bigO)
+[![Download stats](https://pypip.in/download/bigO/badge.svg)](https://pypi.python.org/pypi/bigO)
+
 *Symbolic representation of big-O notation.*
 
 I was [looking for something like this](http://stackoverflow.com/questions/14510216/is-there-a-library-for-programmatic-manipulation-of-big-o-complexities)
