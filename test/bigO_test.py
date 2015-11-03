@@ -50,5 +50,9 @@ class TestBigO(unittest.TestCase):
     total_time = self.f_time.inside(self.g_time).followed_by(self.h_time)
     self.assertEqual(total_time, O(n**3))
 
+  def test_operator_composition(self):
+    total_time = self.f_time * self.g_time + self.h_time
+    self.assertEqual(total_time, O(n**3))
+
 if __name__ == '__main__':
   unittest.main()

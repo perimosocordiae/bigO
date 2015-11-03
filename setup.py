@@ -2,7 +2,7 @@
 from setuptools import setup
 
 setup(name='bigO',
-      version='0.1.1',
+      version='0.2',
       description='Symbolic representation of big-O notation.',
       author='CJ Carey',
       author_email='perimosocordiae@gmail.com',

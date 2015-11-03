@@ -13,7 +13,8 @@ True
 >>> total_time = f_time.inside(g_time).followed_by(h_time)
 >>> print(total_time)
 O(n**3)
-
+>>> total_time == f_time * g_time + h_time
+True
 '''
 
 import sympy
@@ -48,6 +49,12 @@ class BigO(object):
 
   def __str__(self):
     return "O(%s)" % self.expr
+
+  # Aliases for operator interface
+  __mul__ = inside
+  __rmul__ = inside
+  __add__ = followed_by
+  __radd__ = followed_by
 
 # definitions for concision, if desired
 O = BigO
