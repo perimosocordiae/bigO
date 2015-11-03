@@ -27,4 +27,8 @@ fastest_asymptotically = min(f_time, g_time, h_time)
 
 total_time = f_time.inside(g_time).followed_by(h_time)
 # = O(n**3)
+
+# If you prefer a less verbose API:
+total_time = f_time * g_time + h_time
+# = O(n**3)
 ```
